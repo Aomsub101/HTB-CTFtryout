@@ -27,7 +27,7 @@ class TimeModel
         return $res;
     }
 }
-'''
+
 
 you can see that it execute the command "$this->command" using "$time = exec($this->command);"
 directly without sanatizing it.
