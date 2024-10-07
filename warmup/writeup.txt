@@ -1,0 +1,1 @@
+Using wget <ip:port> to download the web sourcecode and easily found the flag
