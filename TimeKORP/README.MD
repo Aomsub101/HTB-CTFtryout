@@ -1,17 +1,18 @@
-TimeKORP
+# TimeKORP Challenge
 
-Description:
-Are you ready to unravel the mysteries and expose the truth hidden within KROP's digital domain? 
-Join the challenge and prove your prowess in the world of cybersecurity. 
-Remember, time is money, but in this case, the rewards may be far greater than you imagine.
+## Description:
+Are you ready to unravel the mysteries and expose the truth hidden within KROP's digital domain? Join the challenge and prove your prowess in the world of cybersecurity. Remember, time is money, but in this case, the rewards may be far greater than you imagine.
 
-Key point: Command line injection
+### Key Point:
+The vulnerability exploited in this challenge is **command line injection**.
 
-Solution:
-in the 
-/models/TimeModel.php file
+---
 
-<?php
+## Solution:
+
+The vulnerability lies in the `/models/TimeModel.php` file. The code for constructing and executing the command is as follows:
+
+```php
 class TimeModel
 {
     public function __construct($format)
@@ -22,10 +23,11 @@ class TimeModel
     public function getTime()
     {
         $time = exec($this->command);
-        $res  = isset($time) ? $time : '?';
+        $res = isset($time) ? $time : '?';
         return $res;
     }
-}   
+}
+'''
 
 you can see that it execute the command "$this->command" using "$time = exec($this->command);"
 directly without sanatizing it.
